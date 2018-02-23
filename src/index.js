@@ -22,11 +22,11 @@ class Sorter {
 
   sort(indices) {
     var filteredStorage = indices.map(index => this.storage[index]);
-    var sortedStorage = filteredStorage.sort();
+    var sortedStorage = filteredStorage.sort((a,b) => a-b);
     if (this.comparator) {
       sortedStorage = filteredStorage.sort(this.comparator);
     }
-    else {sortedStorage = filteredStorage.sort()}
+    else{sortedStorage = filteredStorage.sort((a,b)=>a-b)}
     indices.sort().forEach((item,index) => {
       this.storage[item] = sortedStorage[index];
     })
